@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Short Rout</string>
+    <string name="title">Trip Plans</string>
+    <string name="trip_name">TripName</string>
+    <string name="start_end_location">StartEndLocation</string>
+    <string name="back_button">Back</string>
+    <string name="delete_button">Delete</string>
+    <string name="save_button">Save</string>
+    <string name="menu_add">Add</string>
+    <string name="next">Next</string>
+
+    <string name="new_plan">New Plan</string>
+
+    <string name="title_activity_main_activity0__login">Sign in</string>
+    <string name="plan_s_name">Plan\'s Name</string>
+    <string name="plan_s_date">Reminding Date</string>
+
+    <!-- Strings related to login -->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."></string>
+    <string name="choose_your_destinations">Choose Your Destinations</string>
+    <string name="calculate">Calculate</string>
+    <string name="discard">Discard</string>
+    <string name="reset">Reset</string>
+    <string name="destination">Destination</string>
+    <string name="calculate_dialog_title">This is the calculated result.</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+</resources>
