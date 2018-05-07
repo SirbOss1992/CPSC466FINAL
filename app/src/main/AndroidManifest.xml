@@ -10,13 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity0_Sign_In_Up"
+            android:name=".MainActivity_Spash"
             android:noHistory="false"
-            android:label="Welcome">
+            android:label="THE WEEBZ ROUT">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity0_Sign_In_Up"
+            android:label="WELCOME">
+
         </activity>
 
         <activity
