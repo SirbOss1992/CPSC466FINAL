@@ -13,7 +13,7 @@
 
     <string name="title_activity_main_activity0__login">Sign in</string>
     <string name="plan_s_name">Plan\'s Name</string>
-    <string name="plan_s_date">Reminding Date</string>
+    <string name="plan_s_date">MM/DD/YYYY</string>
 
     <!-- Strings related to login -->
     <string name="username">Username</string>

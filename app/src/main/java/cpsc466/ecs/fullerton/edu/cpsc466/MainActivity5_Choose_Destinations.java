@@ -61,7 +61,7 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 AlertDialog.Builder greetingTurtle = new AlertDialog.Builder(context);
-                greetingTurtle.setMessage("Hello Donatello");
+                greetingTurtle.setMessage("Hello Donatello!!!!");
 
                 greetingTurtle.setPositiveButton("COWABUNGA!!!!", new DialogInterface.OnClickListener() {
                     @Override
@@ -181,7 +181,7 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
                 }
             }
             final String Result = temp;
-            savedRoutDatabase.insertNewRout(planName, planDate, Result, totalTravelDistance, totalTravelTime, username);
+            savedRoutDatabase.insertNewRout(planName, planDate, Result, String.valueOf(totalTravelDistance), String.valueOf(totalTravelTime), username);
             //Calculate button dialog
             AlertDialog.Builder showCalculation = new AlertDialog.Builder(this);
             showCalculation.setMessage(Result);

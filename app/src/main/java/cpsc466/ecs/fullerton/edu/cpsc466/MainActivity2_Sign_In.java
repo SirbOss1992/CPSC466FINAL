@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity2_Sign_In extends AppCompatActivity {
     Database usernameDatabase;
+    Database routDatabase;
     EditText username, password;
     Button signIn;
 
@@ -21,6 +22,7 @@ public class MainActivity2_Sign_In extends AppCompatActivity {
         username = (EditText) findViewById(R.id.userName);
         password = (EditText) findViewById(R.id.password);
         usernameDatabase = new Database(this);
+        routDatabase = new Database(this);
     }
 
     public void signInFunction(View view) {
@@ -29,8 +31,12 @@ public class MainActivity2_Sign_In extends AppCompatActivity {
         else {
             if (usernameDatabase.validateLogin(username.getText().toString(), password.getText().toString())) {
                 Intent i = new Intent(this, MainActivity3_Main.class);
+                i.putExtra("Username", username.getText().toString());
+                username.setText("");
+                password.setText("");
                 startActivity(i);
-            } else {
+            }
+            else {
                 Toast.makeText(this, "Invalid Login. Try Again", Toast.LENGTH_SHORT).show();
             }
         }

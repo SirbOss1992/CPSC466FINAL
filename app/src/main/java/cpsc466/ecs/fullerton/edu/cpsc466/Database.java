@@ -28,8 +28,8 @@ public class Database extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         String userTable = "CREATE TABLE " + USER_TABLE_NAME + " (" + USER_COL_1 + " TEXT PRIMARY KEY, " + USER_COL_2 + " TEXT)";
         String routDataTable = "CREATE TABLE " + SAVED_PLAN_TABLE_NAME + " (" + SAVED_PLAN_COL_1 + " TEXT, " + SAVED_PLAN_COL_2 + " TEXT, "
-                                                                            + SAVED_PLAN_COL_3 + " TEXT, " + SAVED_PLAN_COL_4 + " REAL, "
-                                                                            + SAVED_PLAN_COL_5 + " INTEGER, " + SAVED_PLAN_COL_6 + " TEXT, "
+                                                                            + SAVED_PLAN_COL_3 + " TEXT, " + SAVED_PLAN_COL_4 + " TEXT, "
+                                                                            + SAVED_PLAN_COL_5 + " TEXT, " + SAVED_PLAN_COL_6 + " TEXT, "
                                                                             + "FOREIGN KEY(" + SAVED_PLAN_COL_6 + ") REFERENCES " + USER_TABLE_NAME + "(" + USER_COL_1 + "))";
 
         db.execSQL(routDataTable);
@@ -102,7 +102,7 @@ public class Database extends SQLiteOpenHelper {
         }
     }
 
-    public void insertNewRout(String newSavedPlanName, String newSavedPlanDate, String newSavedRout, double newRoutDistance, int newRoutTime, String username) {
+    public void insertNewRout(String newSavedPlanName, String newSavedPlanDate, String newSavedRout, String newRoutDistance, String newRoutTime, String username) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(SAVED_PLAN_COL_1, newSavedPlanName);
@@ -113,5 +113,10 @@ public class Database extends SQLiteOpenHelper {
         contentValues.put(SAVED_PLAN_COL_6, username);
         db.insert(SAVED_PLAN_TABLE_NAME, null, contentValues);
         db.close();
+    }
+
+    public Cursor getListContents(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + SAVED_PLAN_TABLE_NAME, null);
     }
 }
