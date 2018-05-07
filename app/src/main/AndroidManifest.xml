@@ -12,7 +12,7 @@
         <activity
             android:name=".MainActivity_Spash"
             android:noHistory="false"
-            android:label="THE WEEBZ ROUT">
+            android:label="WEEBZ ROUT">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
