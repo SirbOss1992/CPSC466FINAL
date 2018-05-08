@@ -1,10 +1,12 @@
 package cpsc466.ecs.fullerton.edu.cpsc466;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -39,6 +41,8 @@ public class MainActivity1_Sign_Up extends AppCompatActivity {
                     username.setText("");
                     password.setText("");
                     confirmPassword.setText("");
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(signUp.getWindowToken(), 0);
                     startActivity(i);
                 } else
                     Toast.makeText(this, "Please Reconfirm Password", Toast.LENGTH_SHORT).show();

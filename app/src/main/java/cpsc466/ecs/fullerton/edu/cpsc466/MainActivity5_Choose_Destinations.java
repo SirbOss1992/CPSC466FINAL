@@ -49,34 +49,6 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main5);
 
-        AlertDialog.Builder showInstruction = new AlertDialog.Builder(this);
-        showInstruction.setMessage("This map can be scrolled either horizontally for more locations." +
-                " The first location you click will be your starting location.");
-        showInstruction.setTitle("Attention!!!!");
-
-        showInstruction.setPositiveButton("Got It", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface saveResult, int i) {}
-        });
-
-        showInstruction.setNegativeButton("I'm a turtle", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                AlertDialog.Builder greetingTurtle = new AlertDialog.Builder(context);
-                greetingTurtle.setMessage("Hello Donatello!!");
-
-                greetingTurtle.setPositiveButton("COWABUNGA!!!!", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface saveResult, int i) {}
-                });
-
-                AlertDialog dia = greetingTurtle.create();
-                dia.show();
-            }
-        });
-        AlertDialog dialog = showInstruction.create();
-        dialog.show();
-
         calculateButton = (Button) findViewById(R.id.calculateNewPlan);
         discardButton = (Button) findViewById(R.id.discardAllChanges);
         Intent getName = getIntent();

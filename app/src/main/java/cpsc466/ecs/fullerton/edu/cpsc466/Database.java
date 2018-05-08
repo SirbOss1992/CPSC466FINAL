@@ -115,9 +115,17 @@ public class Database extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Cursor getListContents(){
+    public Cursor getListContents(String username){
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " + SAVED_PLAN_TABLE_NAME, null);
+        Cursor data = db.query(
+                SAVED_PLAN_TABLE_NAME,
+                new String [] {SAVED_PLAN_COL_1, SAVED_PLAN_COL_2, SAVED_PLAN_COL_3,
+                        SAVED_PLAN_COL_4, SAVED_PLAN_COL_5, SAVED_PLAN_COL_6},
+                SAVED_PLAN_COL_6 + "=?",
+                new String []{username},
+                null,null,null,null);
+        db.close();
+        return data;
     }
 
     public void deleteRout(String planName) {

@@ -8,14 +8,12 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.view.inputmethod.InputMethodManager;
 
 import java.util.ArrayList;
 
@@ -35,24 +33,56 @@ public class MainActivity3_Main extends AppCompatActivity implements View.OnLong
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+
+        AlertDialog.Builder showInstruction = new AlertDialog.Builder(this);
+        showInstruction.setMessage("To add new travel plan, please tap the button at the top right of this screen."
+                + "\nTo delete existed plan, tap and hold on the plan which you want to delete"
+                + "\nIf you're a turtle, tap the the other button below.");
+        showInstruction.setTitle("Basic instruction!! Please Read!!");
+
+        showInstruction.setPositiveButton("Got It", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface saveResult, int i) {}
+        });
+
+        showInstruction.setNegativeButton("I'm a turtle", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                AlertDialog.Builder greetingTurtle = new AlertDialog.Builder(context);
+                greetingTurtle.setMessage("Hello Donatello!!");
+
+                greetingTurtle.setPositiveButton("COWABUNGA!!!!", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface saveResult, int i) {}
+                });
+
+                AlertDialog dia = greetingTurtle.create();
+                dia.show();
+            }
+        });
+        AlertDialog dialog = showInstruction.create();
+        dialog.show();
+
+
+        Intent getUsername = getIntent();
+        username = getUsername.getStringExtra("Username");
+
         routData = new Database(this);
-        cursor = routData.getListContents();
-        int numRows = cursor.getCount();
+        cursor = routData.getListContents(username);
         routList = new ArrayList<>();
-        while(cursor.moveToNext()){
-            rout = new Rout(cursor.getString(0),
-                    cursor.getString(1),
-                    cursor.getString(2),
-                    cursor.getString(3),
-                    cursor.getString(4));
-            routList.add(rout);
+        if(cursor.moveToFirst()) {
+            do{
+                rout = new Rout(cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4));
+                routList.add(rout);
+            }while (cursor.moveToNext());
         }
         adapter = new PlanView_ListAdapter(this, R.layout.list_adapter_view,routList);
         routView = (ListView) findViewById(R.id.savedPlanView);
         routView.setAdapter(adapter);
-
-        Intent getUsername = getIntent();
-        username = getUsername.getStringExtra("Username");
     }
 
     @Override

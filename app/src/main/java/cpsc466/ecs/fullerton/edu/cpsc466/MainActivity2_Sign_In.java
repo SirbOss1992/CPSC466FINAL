@@ -1,5 +1,6 @@
 package cpsc466.ecs.fullerton.edu.cpsc466;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
