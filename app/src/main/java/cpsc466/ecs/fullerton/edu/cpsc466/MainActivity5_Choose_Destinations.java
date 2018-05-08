@@ -114,7 +114,6 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
                         found = true;
                         locationIndex.remove(removeIndex);
                         checkFlag.remove(removeIndex);
-                        ++removeIndex;
                     }
                     ++removeIndex;
                 }
@@ -131,10 +130,12 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
             int minTime;
             double travelDistance = 0.0;
             int travelTime = 0;
-            sortedLocations.add(locationIndex.get(0));
-            int previousLocationIndex = Integer.valueOf(locationIndex.get(0));
+            sortedLocations.add(locationIndex.get(index));
+            Log.d("MA", sortedLocations.get(index));
+            int previousLocationIndex = Integer.valueOf(locationIndex.get(index));
             int newPreviousLocationIndex;
             checkFlag.set(index, "C");
+            String foundIndex;
             ++index;
 
             while (index < locationIndex.size()) {
@@ -145,7 +146,7 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
                     tempIndex = index;
                     ++index;
                     while (index < locationIndex.size()) {
-                        if (checkFlag.get(index).equals("_")) {
+                        if (!checkFlag.get(index).equals("C")) {
                             if (minDistance > locationData.distance[previousLocationIndex][Integer.valueOf(locationIndex.get(index))]) {
                                 minDistance = locationData.distance[previousLocationIndex][Integer.valueOf(locationIndex.get(index))];
                                 minTime = locationData.time[previousLocationIndex][Integer.valueOf(locationIndex.get(index))];
@@ -153,16 +154,20 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
                                 tempIndex = index;
                             }
                             ++index;
-                        } else
+                        }
+                        else
                             ++index;
                     }
+
                     sortedLocations.add(locationIndex.get(tempIndex));
+
                     travelDistance += minDistance;
                     travelTime += minTime;
                     checkFlag.set(tempIndex, "C");
                     previousLocationIndex = newPreviousLocationIndex;
                     index = 0;
-                } else
+                }
+                else
                     ++index;
             }
 

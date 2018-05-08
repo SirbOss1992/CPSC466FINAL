@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+
 <ListView
 
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -8,5 +9,7 @@
     android:fillViewport="false"
     android:orientation="vertical"
     android:padding="10dp"
-    android:id="@+id/savedPlanView">
+    android:id="@+id/savedPlanView"
+    android:divider="#ffffff"
+    android:dividerHeight="4dp">
 </ListView>
