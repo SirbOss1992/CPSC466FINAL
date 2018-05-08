@@ -27,7 +27,7 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db){
         String userTable = "CREATE TABLE " + USER_TABLE_NAME + " (" + USER_COL_1 + " TEXT PRIMARY KEY, " + USER_COL_2 + " TEXT)";
-        String routDataTable = "CREATE TABLE " + SAVED_PLAN_TABLE_NAME + " (" + SAVED_PLAN_COL_1 + " TEXT, " + SAVED_PLAN_COL_2 + " TEXT, "
+        String routDataTable = "CREATE TABLE " + SAVED_PLAN_TABLE_NAME + " (" + SAVED_PLAN_COL_1 + " TEXT PRIMARY KEY, " + SAVED_PLAN_COL_2 + " TEXT, "
                                                                             + SAVED_PLAN_COL_3 + " TEXT, " + SAVED_PLAN_COL_4 + " TEXT, "
                                                                             + SAVED_PLAN_COL_5 + " TEXT, " + SAVED_PLAN_COL_6 + " TEXT, "
                                                                             + "FOREIGN KEY(" + SAVED_PLAN_COL_6 + ") REFERENCES " + USER_TABLE_NAME + "(" + USER_COL_1 + "))";
@@ -120,5 +120,9 @@ public class Database extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + SAVED_PLAN_TABLE_NAME, null);
     }
 
-
+    public void deleteRout(String planName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(SAVED_PLAN_TABLE_NAME, SAVED_PLAN_COL_1 + " =?", new String[] {planName});
+        db.close();
+    }
 }

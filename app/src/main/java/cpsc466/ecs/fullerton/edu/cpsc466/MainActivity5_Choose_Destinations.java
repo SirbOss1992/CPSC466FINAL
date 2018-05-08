@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class MainActivity5_Choose_Destinations extends AppCompatActivity {
@@ -129,8 +128,8 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
             int index = 0;
             int tempIndex;
             double minDistance;
-            int minTime;
             double travelDistance = 0.0;
+            int minTime;
             int travelTime = 0;
             sortedLocations.add(locationIndex.get(index));
             int previousLocationIndex = Integer.valueOf(locationIndex.get(index));
