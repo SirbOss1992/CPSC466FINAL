@@ -22,10 +22,10 @@
             android:layout_height="wrap_content">
 
             <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:layout_editor_absoluteX="78dp"
-                tools:layout_editor_absoluteY="0dp">
+                app:layout_editor_absoluteX="78dp"
+                app:layout_editor_absoluteY="0dp">
 
                 <ImageView
                     android:id="@+id/imageView"
@@ -51,7 +51,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginTop="8dp"
                     android:button="@null"
-                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
                     android:onClick="ClickMe"
                     android:tag="7"
                     android:text="ROBOT4LESS"
@@ -59,7 +59,7 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.301"
+                    app:layout_constraintHorizontal_bias="0.353"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.932" />
@@ -95,7 +95,7 @@
                     android:allowUndo="true"
                     android:button="@null"
                     android:checked="false"
-                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
                     android:onClick="ClickMe"
                     android:tag="4"
                     android:text="Fullerton Golf Course"
@@ -103,10 +103,30 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.394"
+                    app:layout_constraintHorizontal_bias="0.452"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.276" />
+                    app:layout_constraintVertical_bias="0.281" />
+
+                <CheckBox
+                    android:id="@+id/calStateFullerton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:onClick="ClickMe"
+                    android:tag="11"
+                    android:text="Cal State Fullerton"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.948"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.566" />
 
                 <CheckBox
                     android:id="@+id/starBucks"
@@ -137,7 +157,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:button="@null"
-                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
                     android:onClick="ClickMe"
                     android:tag="9"
                     android:text="St Jude Medical Center"
@@ -159,7 +179,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:button="@null"
-                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
                     android:onClick="ClickMe"
                     android:tag="3"
                     android:text="Fullerton Elks Lodge"
@@ -167,10 +187,32 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.403"
+                    app:layout_constraintHorizontal_bias="0.431"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.535" />
+
+                <CheckBox
+                    android:id="@+id/amerigeHeightsTownCenter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:button="@null"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
+                    android:onClick="ClickMe"
+                    android:tag="12"
+                    android:text="Amerige Heights Town"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.654" />
 
                 <CheckBox
                     android:id="@+id/kashmirApartment"
@@ -181,7 +223,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:button="@null"
-                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
                     android:onClick="ClickMe"
                     android:tag="2"
                     android:text="Kashmir Apartment"
@@ -205,7 +247,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:button="@null"
-                    android:drawableRight="?android:attr/listChoiceIndicatorMultiple"
+                    android:drawableEnd="?android:attr/listChoiceIndicatorMultiple"
                     android:onClick="ClickMe"
                     android:tag="6"
                     android:text="Fullerton Metro Center"
@@ -213,10 +255,10 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.363"
+                    app:layout_constraintHorizontal_bias="0.393"
                     app:layout_constraintStart_toStartOf="@+id/imageView"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.977" />
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <CheckBox
                     android:id="@+id/fullertonCollege"
@@ -233,7 +275,7 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.663"
+                    app:layout_constraintHorizontal_bias="0.638"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.685" />
@@ -253,7 +295,7 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.626"
+                    app:layout_constraintHorizontal_bias="0.6"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.913" />
@@ -275,28 +317,29 @@
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/imageView"
-                    app:layout_constraintHorizontal_bias="0.599"
+                    app:layout_constraintHorizontal_bias="0.634"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.823" />
 
             </android.support.constraint.ConstraintLayout>
         </HorizontalScrollView>
-        </ScrollView>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_weight="100"
         android:gravity="bottom"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/calculateNewPlan"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_weight="1"
+            android:layout_weight="30"
             android:background="@drawable/button"
             android:onClick="calculateAndDisplay"
             android:text="@string/calculate"
@@ -304,10 +347,11 @@
 
         <Button
             android:id="@+id/discardAllChanges"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_weight="1"
+            android:layout_weight="30"
             android:background="@drawable/button"
             android:onClick="discardAllOptions"
             android:text="@string/discard"
@@ -315,10 +359,11 @@
 
         <Button
             android:id="@+id/reset"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_weight="1"
+            android:layout_weight="30"
             android:background="@drawable/button"
             android:onClick="reset"
             android:text="@string/reset"

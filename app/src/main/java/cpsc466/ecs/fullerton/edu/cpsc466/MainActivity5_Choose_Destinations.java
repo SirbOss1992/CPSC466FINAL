@@ -49,8 +49,9 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
         setContentView(R.layout.activity_main5);
 
         AlertDialog.Builder showInstruction = new AlertDialog.Builder(this);
-        showInstruction.setMessage("This map can be scrolled either horizontally or vertically for more locations");
-        showInstruction.setTitle("Attention");
+        showInstruction.setMessage("This map can be scrolled either horizontally for more locations." +
+                " The first location you click will be your starting location.");
+        showInstruction.setTitle("Attention!!!!");
 
         showInstruction.setPositiveButton("Got It", new DialogInterface.OnClickListener() {
             @Override
@@ -61,7 +62,7 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 AlertDialog.Builder greetingTurtle = new AlertDialog.Builder(context);
-                greetingTurtle.setMessage("Hello Donatello!!!!");
+                greetingTurtle.setMessage("Hello Donatello!!");
 
                 greetingTurtle.setPositiveButton("COWABUNGA!!!!", new DialogInterface.OnClickListener() {
                     @Override
@@ -84,7 +85,6 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
         planDate = getDate.getStringExtra("Date");
         username = getUsername.getStringExtra("Username");
 
-
         robot4Less = (CheckBox) findViewById(R.id.robot4Less);
         westCoastRecyclingCenter = (CheckBox) findViewById(R.id.westCoastRecyclingCenter);
         fullertonGolfCourse = (CheckBox) findViewById(R.id.fullertonGolfCourse);
@@ -100,7 +100,7 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
 
     public void ClickMe(View view) {
         CheckBox button = (CheckBox) view;
-        String checkBoxTag = view.getTag().toString();
+        String checkBoxTag = button.getTag().toString();
         if (button.isChecked()) {
             locationIndex.add(checkBoxTag);
             checkFlag.add("NC");
@@ -129,8 +129,8 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
             int tempIndex;
             double minDistance;
             int minTime;
-            double totalTravelDistance = 0.0;
-            int totalTravelTime = 0;
+            double travelDistance = 0.0;
+            int travelTime = 0;
             sortedLocations.add(locationIndex.get(0));
             int previousLocationIndex = Integer.valueOf(locationIndex.get(0));
             int newPreviousLocationIndex;
@@ -157,8 +157,8 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
                             ++index;
                     }
                     sortedLocations.add(locationIndex.get(tempIndex));
-                    totalTravelDistance += minDistance;
-                    totalTravelTime += minTime;
+                    travelDistance += minDistance;
+                    travelTime += minTime;
                     checkFlag.set(tempIndex, "C");
                     previousLocationIndex = newPreviousLocationIndex;
                     index = 0;
@@ -181,7 +181,9 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
                 }
             }
             final String Result = temp;
-            savedRoutDatabase.insertNewRout(planName, planDate, Result, String.valueOf(totalTravelDistance), String.valueOf(totalTravelTime), username);
+            final String totalTravelDistance = String.valueOf(travelDistance);
+            final String totalTravelTime = String.valueOf(travelTime);
+
             //Calculate button dialog
             AlertDialog.Builder showCalculation = new AlertDialog.Builder(this);
             showCalculation.setMessage(Result);
@@ -192,6 +194,7 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
                 public void onClick(DialogInterface saveResult, int i) {
                     //DO SOMETHING ABOUT THIS ASAP
                     Intent j = new Intent(context, MainActivity3_Main.class);
+                    savedRoutDatabase.insertNewRout(planName, planDate, Result, totalTravelDistance, totalTravelTime, username);
                     j.putExtra("calculatedPlan", Result);
                     startActivity(j);
                 }

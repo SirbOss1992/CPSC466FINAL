@@ -2,37 +2,36 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:weightSum="100">
-
     <TextView
         android:id="@+id/planNameDate"
-        android:layout_weight="33"
+        android:layout_weight="40"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="#ffffff"
         android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/planRout"
-        android:layout_weight="33"
+        android:layout_weight="40"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="#ffffff"
         android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/planDistanceAndTime"
-        android:layout_weight="33"
+        android:layout_weight="20"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="#ffffff"
         android:textStyle="bold"/>
-
 
 </LinearLayout>

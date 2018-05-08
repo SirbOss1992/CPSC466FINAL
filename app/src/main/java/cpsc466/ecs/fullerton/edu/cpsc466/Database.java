@@ -120,5 +120,5 @@ public class Database extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + SAVED_PLAN_TABLE_NAME, null);
     }
 
-    
+
 }
