@@ -26,16 +26,15 @@ public class PlanView_ListAdapter  extends ArrayAdapter<Rout>{
         Rout rout = routs.get(position);
 
         if(rout != null){
-            TextView name = (TextView) convertView.findViewById(R.id.planName);
-            TextView date = (TextView) convertView.findViewById(R.id.planDate);
+            TextView nameAndDate = (TextView) convertView.findViewById(R.id.planNameDate);
             TextView calculatedRout = (TextView) convertView.findViewById(R.id.planRout);
             TextView distance = (TextView) convertView.findViewById(R.id.planDistanceAndTime);
 
-            if(name != null && date != null && calculatedRout != null && distance != null){
-                name.setText(rout.getName());
-                date.setText(rout.getDate());
+            if(nameAndDate != null && calculatedRout != null && distance != null){
+                String nameDate = rout.getName() + "\n" + rout.getTime();
+                nameAndDate.setText(nameDate);
                 calculatedRout.setText(rout.getRout());
-                String distanceAndTime = rout.getDistance() + " mile" + "\n" + rout.getTime() + " minute";
+                String distanceAndTime = rout.getDistance() + " mile" + "\n" + rout.getTime() + " minutes";
                 distance.setText(distanceAndTime);
             }
         }

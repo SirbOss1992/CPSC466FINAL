@@ -34,7 +34,6 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/plan_s_date"
-            android:inputType="date"
             android:paddingTop="50dp"
             android:textColor="#ffffff"
             android:textSize="36sp"
