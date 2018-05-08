@@ -5,15 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     android:padding="@dimen/activity_vertical_margin"
     tools:context="cpsc466.ecs.fullerton.edu.cpsc466.MainActivity4_Name_Plan">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
 
         <EditText
             android:id="@+id/planNameEditText"
@@ -28,17 +24,53 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="9dp" />
 
-        <EditText
-            android:id="@+id/planNameDateEditText"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/plan_s_date"
-            android:paddingTop="50dp"
-            android:textColor="#ffffff"
-            android:textSize="36sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="9dp" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/planMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="date"
+                android:hint="@string/plan_s_month"
+                android:paddingTop="50dp"
+                android:textColor="#ffffff"
+                android:textSize="36sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="9dp" />
+
+            <EditText
+                android:id="@+id/planDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="date"
+                android:hint="@string/plan_s_date"
+                android:paddingTop="50dp"
+                android:textColor="#ffffff"
+                android:textSize="36sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="9dp" />
+
+            <EditText
+                android:id="@+id/planYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="date"
+                android:hint="@string/plan_s_year"
+                android:paddingTop="50dp"
+                android:textColor="#ffffff"
+                android:textSize="36sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="9dp" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/next"
@@ -49,6 +81,5 @@
             android:textColor="#ffffff"
             android:text="@string/next" />
 
-    </LinearLayout>
 
-</LinearLayout>
+    </LinearLayout>

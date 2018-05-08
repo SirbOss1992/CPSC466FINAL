@@ -9,11 +9,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class MainActivity4_Name_Plan extends AppCompatActivity {
     Button next;
     String username;
     private EditText planName;
+    private EditText planMonth;
     private EditText planDate;
+    private EditText planYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +29,14 @@ public class MainActivity4_Name_Plan extends AppCompatActivity {
         setContentView(R.layout.activity_main4);
         next = (Button) findViewById(R.id.next);
         planName = (EditText) findViewById(R.id.planNameEditText);
-        planDate = (EditText) findViewById(R.id.planNameDateEditText);
+        planMonth = (EditText) findViewById(R.id.planMonth);
+        planDate = (EditText) findViewById(R.id.planDate);
+        planYear = (EditText) findViewById(R.id.planYear);
+        /*Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.DAY_OF_MONTH, Integer.valueOf(planMonth.getText().toString()));
+        cal.set(Calendar.DAY_OF_MONTH, Integer.valueOf(planDate.getText().toString()));
+        cal.set(Calendar.DAY_OF_MONTH, Integer.valueOf(planYear.getText().toString()));*/
+
         Intent getUsername = getIntent();
         username = getUsername.getStringExtra("Username");
     }
@@ -30,7 +45,7 @@ public class MainActivity4_Name_Plan extends AppCompatActivity {
         if (!(planName.getText().toString().equalsIgnoreCase("")) && !(planDate.getText().toString().equalsIgnoreCase(""))) {
             Intent j = new Intent(this, MainActivity5_Choose_Destinations.class);
             String planNameString = planName.getText().toString();
-            String planDateString = planDate.getText().toString();
+            String planDateString = planMonth.getText().toString() + "/" + planDate.getText().toString() + "/" + planYear.getText().toString();
             j.putExtra("Username", username);
             j.putExtra("Name", planNameString);
             j.putExtra("Date", planDateString);

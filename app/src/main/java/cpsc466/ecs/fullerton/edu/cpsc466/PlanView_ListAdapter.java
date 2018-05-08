@@ -31,7 +31,7 @@ public class PlanView_ListAdapter  extends ArrayAdapter<Rout>{
             TextView distance = (TextView) convertView.findViewById(R.id.planDistanceAndTime);
 
             if(nameAndDate != null && calculatedRout != null && distance != null){
-                String nameDate = rout.getName() + "\n" + rout.getTime();
+                String nameDate = rout.getName() + "\n" + rout.getDate();
                 nameAndDate.setText(nameDate);
                 calculatedRout.setText(rout.getRout());
                 String distanceAndTime = rout.getDistance() + " mile" + "\n" + rout.getTime() + " minutes";

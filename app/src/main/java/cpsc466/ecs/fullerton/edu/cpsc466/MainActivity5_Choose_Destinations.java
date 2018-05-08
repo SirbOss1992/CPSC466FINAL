@@ -39,7 +39,9 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
             fullertonMetroCenter,
             fullertonCollege,
             fullertonTownCenter,
-            fullertonCommunityCenter;
+            fullertonCommunityCenter,
+            calStateFullerton,
+            amerigeHeightsTownCenter;
 
     Context context = this;
 
@@ -131,7 +133,6 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
             double travelDistance = 0.0;
             int travelTime = 0;
             sortedLocations.add(locationIndex.get(index));
-            Log.d("MA", sortedLocations.get(index));
             int previousLocationIndex = Integer.valueOf(locationIndex.get(index));
             int newPreviousLocationIndex;
             checkFlag.set(index, "C");
@@ -200,7 +201,6 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
                     //DO SOMETHING ABOUT THIS ASAP
                     Intent j = new Intent(context, MainActivity3_Main.class);
                     savedRoutDatabase.insertNewRout(planName, planDate, Result, totalTravelDistance, totalTravelTime, username);
-                    j.putExtra("calculatedPlan", Result);
                     startActivity(j);
                 }
             });
