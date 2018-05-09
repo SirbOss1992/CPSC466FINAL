@@ -69,6 +69,8 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
         fullertonCollege = (CheckBox) findViewById(R.id.fullertonCollege);
         fullertonTownCenter = (CheckBox) findViewById(R.id.fullertonTownCenter);
         fullertonCommunityCenter = (CheckBox) findViewById(R.id.fullertonCommunityCenter);
+        calStateFullerton = (CheckBox) findViewById(R.id.calStateFullerton);
+        amerigeHeightsTownCenter = (CheckBox) findViewById(R.id.amerigeHeightsTownCenter);
     }
 
     public void ClickMe(View view) {
@@ -172,6 +174,7 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
                     //DO SOMETHING ABOUT THIS ASAP
                     Intent j = new Intent(context, MainActivity3_Main.class);
                     savedRoutDatabase.insertNewRout(planName, planDate, Result, totalTravelDistance, totalTravelTime, username);
+                    j.putExtra("Username", username);
                     startActivity(j);
                 }
             });
@@ -204,6 +207,7 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
             public void onClick(DialogInterface saveResult, int i) {
                 //DO SOMETHING ABOUT THIS ASAP
                 Intent z = new Intent(context, MainActivity3_Main.class);
+                z.putExtra("Username", username);
                 startActivity(z);
             }
         });
@@ -226,6 +230,7 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
             public void onClick(DialogInterface saveResult, int i) {
                 //DO SOMETHING ABOUT THIS ASAP
                 Intent z = new Intent(context, MainActivity5_Choose_Destinations.class);
+                z.putExtra("Username", username);
                 startActivity(z);
             }
         });

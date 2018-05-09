@@ -7,35 +7,39 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:onClick="planDelete">
-
-    <TextView
-        android:id="@+id/planNameDate"
-        android:layout_width="144dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:textColor="#ffffff"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/planNameDate"
+                android:layout_width="137dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/planRout"
-        android:layout_width="268dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:textColor="#ffffff"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/planDistanceAndTime"
+                android:layout_width="138dp"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/planDistanceAndTime"
-        android:layout_width="143dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/planNameDate"
-        android:textColor="#ffffff"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/planRout"
+            android:layout_width="268dp"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </RelativeLayout>

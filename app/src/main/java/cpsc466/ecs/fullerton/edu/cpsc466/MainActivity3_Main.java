@@ -21,10 +21,8 @@ public class MainActivity3_Main extends AppCompatActivity implements View.OnLong
 
     String username;
     Database routData;
-    Cursor cursor;
     ListView routView;
     ArrayList<Rout> routList;
-    Rout rout;
     Database db = new Database(this);
     PlanView_ListAdapter adapter;
     Context context = this;
@@ -33,6 +31,16 @@ public class MainActivity3_Main extends AppCompatActivity implements View.OnLong
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+
+        Intent getUsername = getIntent();
+        username = getUsername.getStringExtra("Username");
+
+        routData = new Database(this);
+        routList = db.getListContents(username);
+
+        adapter = new PlanView_ListAdapter(this, R.layout.list_adapter_view,routList);
+        routView = (ListView) findViewById(R.id.savedPlanView);
+        routView.setAdapter(adapter);
 
         AlertDialog.Builder showInstruction = new AlertDialog.Builder(this);
         showInstruction.setMessage("To add new travel plan, please tap the button at the top right of this screen."
@@ -63,26 +71,6 @@ public class MainActivity3_Main extends AppCompatActivity implements View.OnLong
         AlertDialog dialog = showInstruction.create();
         dialog.show();
 
-
-        Intent getUsername = getIntent();
-        username = getUsername.getStringExtra("Username");
-
-        routData = new Database(this);
-        cursor = routData.getListContents(username);
-        routList = new ArrayList<>();
-        if(cursor.moveToFirst()) {
-            do{
-                rout = new Rout(cursor.getString(0),
-                        cursor.getString(1),
-                        cursor.getString(2),
-                        cursor.getString(3),
-                        cursor.getString(4));
-                routList.add(rout);
-            }while (cursor.moveToNext());
-        }
-        adapter = new PlanView_ListAdapter(this, R.layout.list_adapter_view,routList);
-        routView = (ListView) findViewById(R.id.savedPlanView);
-        routView.setAdapter(adapter);
     }
 
     @Override
@@ -136,9 +124,7 @@ public class MainActivity3_Main extends AppCompatActivity implements View.OnLong
 
             showDelete.setNegativeButton("No", new DialogInterface.OnClickListener() {
                 @Override
-                public void onClick(DialogInterface dialog, int which) {
-
-                }
+                public void onClick(DialogInterface dialog, int which) {}
             });
             AlertDialog dialog = showDelete.create();
             dialog.show();

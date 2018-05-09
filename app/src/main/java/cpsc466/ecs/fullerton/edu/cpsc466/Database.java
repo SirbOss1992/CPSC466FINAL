@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class Database extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "SAVED_DATA.db";
     private static final String USER_TABLE_NAME = "User_Table";
@@ -115,19 +117,65 @@ public class Database extends SQLiteOpenHelper {
         db.close();
     }
 
-    public Cursor getListContents(String username){
+    public boolean checkRoutName(String newRoutName){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor data = db.query(
                 SAVED_PLAN_TABLE_NAME,
-                new String [] {SAVED_PLAN_COL_1, SAVED_PLAN_COL_2, SAVED_PLAN_COL_3,
-                        SAVED_PLAN_COL_4, SAVED_PLAN_COL_5, SAVED_PLAN_COL_6},
-                SAVED_PLAN_COL_6 + "=?",
-                new String []{username},
-                null,null,null,null);
-        db.close();
-        return data;
+                new String[]{SAVED_PLAN_COL_1,
+                        SAVED_PLAN_COL_2,
+                        SAVED_PLAN_COL_3,
+                        SAVED_PLAN_COL_4,
+                        SAVED_PLAN_COL_5,
+                        SAVED_PLAN_COL_6},
+                SAVED_PLAN_COL_1 + " =?",
+                new String[]{newRoutName},
+                null, null, null, null);
+        if (data != null && data.getCount() > 0)
+            data.moveToFirst();
+        else {
+            db.close();
+            return false;
+        }
+
+        if(data.getString(0).equals(newRoutName)) {
+            db.close();
+            return true;
+        }
+        else {
+            db.close();
+            return false;
+        }
     }
 
+    public ArrayList<Rout> getListContents(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<Rout> populateRoutData = new ArrayList<>();
+        Rout rout;
+        Cursor data = db.query(
+                SAVED_PLAN_TABLE_NAME,
+                new String[]{SAVED_PLAN_COL_1,
+                        SAVED_PLAN_COL_2,
+                        SAVED_PLAN_COL_3,
+                        SAVED_PLAN_COL_4,
+                        SAVED_PLAN_COL_5,
+                        SAVED_PLAN_COL_6},
+                SAVED_PLAN_COL_6 + " =?",
+                 new String[]{username},
+                null, null, null, null);
+        data.moveToFirst();
+        if (data !=null && data.getCount() > 0) {
+            do {
+                rout = new Rout(data.getString(0),
+                        data.getString(1),
+                        data.getString(2),
+                        data.getString(3),
+                        data.getString(4));
+                populateRoutData.add(rout);
+            } while (data.moveToNext());
+            return populateRoutData;
+        }
+        return populateRoutData;
+    }
     public void deleteRout(String planName) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(SAVED_PLAN_TABLE_NAME, SAVED_PLAN_COL_1 + " =?", new String[] {planName});
