@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -109,16 +110,7 @@ public class MainActivity3_Main extends AppCompatActivity implements View.OnLong
                     routList.remove(position);
                     adapter.notifyDataSetChanged();
 
-                    AlertDialog.Builder confirmDeletion = new AlertDialog.Builder(context);
-                    confirmDeletion.setMessage("");
-
-                    confirmDeletion.setPositiveButton("The plan has been deleted", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface saveResult, int i) {}
-                    });
-
-                    AlertDialog dia = confirmDeletion.create();
-                    dia.show();
+                    Toast.makeText(context, "THE PLAN HAS BEEN DELETED", Toast.LENGTH_SHORT).show();
                 }
             });
 

@@ -36,8 +36,9 @@ public class MainActivity4_Name_Plan extends AppCompatActivity {
         if (!(planName.getText().toString().equals("")) && !(inPlanMonth.getText().toString().equals("")) &&
                 !(inPlanDate.getText().toString().equals("")) && !(inPlanYear.getText().toString().equals(""))) {
             if (!planNameDatabase.checkRoutName(planName.getText().toString())) {
-                if ((Integer.valueOf(inPlanMonth.getText().toString()) > 0 && Integer.valueOf(inPlanMonth.getText().toString()) <= 12) &&
-                        Integer.valueOf(inPlanDate.getText().toString()) <= 31 && inPlanYear.getText().length() <= 4) {
+                if (((Integer.valueOf(inPlanMonth.getText().toString()) > 0 && Integer.valueOf(inPlanMonth.getText().toString()) <= 12) &&
+                        Integer.valueOf(inPlanDate.getText().toString()) <= 31 && inPlanYear.getText().length() <= 4) ||
+                        (Integer.valueOf(inPlanMonth.getText().toString()) == 2 && Integer.valueOf(inPlanDate.getText().toString()) <= 29)) {
                     Intent j = new Intent(this, MainActivity5_Choose_Destinations.class);
                     String planNameString = planName.getText().toString();
                     String planDateString = inPlanMonth.getText().toString() + "/" + inPlanDate.getText().toString() + "/" + inPlanYear.getText().toString();
