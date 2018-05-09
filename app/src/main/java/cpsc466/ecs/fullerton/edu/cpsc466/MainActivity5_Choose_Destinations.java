@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class MainActivity5_Choose_Destinations extends AppCompatActivity {
@@ -160,7 +163,11 @@ public class MainActivity5_Choose_Destinations extends AppCompatActivity {
                 }
             }
             final String Result = temp;
-            final String totalTravelDistance = String.valueOf(travelDistance);
+
+            DecimalFormat df = new DecimalFormat("#.##");
+            double newDistance = Double.valueOf(df.format(travelDistance));
+            final String totalTravelDistance = String.valueOf(newDistance);
+
             final String totalTravelTime = String.valueOf(travelTime);
 
             //Calculate button dialog
