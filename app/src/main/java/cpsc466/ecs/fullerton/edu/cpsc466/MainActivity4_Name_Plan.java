@@ -34,11 +34,18 @@ public class MainActivity4_Name_Plan extends AppCompatActivity {
 
     public void goToAddDestinations(View v) {
         if (!(planName.getText().toString().equals("")) && !(inPlanMonth.getText().toString().equals("")) &&
-                !(inPlanDate.getText().toString().equals("")) && !(inPlanYear.getText().toString().equals(""))) {
-            if (!planNameDatabase.checkRoutName(planName.getText().toString())) {
-                if (((Integer.valueOf(inPlanMonth.getText().toString()) > 0 && Integer.valueOf(inPlanMonth.getText().toString()) <= 12) &&
-                        Integer.valueOf(inPlanDate.getText().toString()) <= 31 && inPlanYear.getText().length() <= 4) ||
-                        (Integer.valueOf(inPlanMonth.getText().toString()) == 2 && Integer.valueOf(inPlanDate.getText().toString()) <= 29)) {
+                !(inPlanDate.getText().toString().equals("")) && !(inPlanYear.getText().toString().equals("")))
+        {
+            if (!planNameDatabase.checkRoutName(planName.getText().toString()))
+            {
+                boolean exception = false;
+                if (Integer.valueOf(inPlanMonth.getText().toString()) == 2 && !(Integer.valueOf(inPlanDate.getText().toString()) <= 29) && inPlanYear.getText().length() <= 4)
+                {
+                    exception = true;
+                    Toast.makeText(this, "Invalid Date Value. IT'S FEBRUARY!!!!", Toast.LENGTH_SHORT).show();
+                }
+                else if (Integer.valueOf(inPlanMonth.getText().toString()) <= 12 && Integer.valueOf(inPlanDate.getText().toString()) <= 31 && inPlanYear.getText().length() <= 4 && exception == false)
+                {
                     Intent j = new Intent(this, MainActivity5_Choose_Destinations.class);
                     String planNameString = planName.getText().toString();
                     String planDateString = inPlanMonth.getText().toString() + "/" + inPlanDate.getText().toString() + "/" + inPlanYear.getText().toString();
@@ -46,11 +53,15 @@ public class MainActivity4_Name_Plan extends AppCompatActivity {
                     j.putExtra("Name", planNameString);
                     j.putExtra("Date", planDateString);
                     startActivity(j);
-                } else {
-                    Toast.makeText(this, "Invalid Date.", Toast.LENGTH_SHORT).show();
+
+                }
+                else
+                    {
+                    Toast.makeText(this, "Invalid Date Value.", Toast.LENGTH_SHORT).show();
                 }
             }
-            else{
+            else
+                {
                 Toast.makeText(this, "Name is in used.", Toast.LENGTH_SHORT).show();
             }
         }

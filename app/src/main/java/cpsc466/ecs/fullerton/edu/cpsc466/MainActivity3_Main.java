@@ -44,9 +44,9 @@ public class MainActivity3_Main extends AppCompatActivity implements View.OnLong
         routView.setAdapter(adapter);
 
         AlertDialog.Builder showInstruction = new AlertDialog.Builder(this);
-        showInstruction.setMessage("To add new travel plan, please tap the button at the top right of this screen."
-                + "\nTo delete existed plan, tap and hold on the plan which you want to delete"
-                + "\nIf you're a turtle, tap the the other button below.");
+        showInstruction.setMessage("* To add new travel plan, please tap the button at the top right of this screen."
+                + "\n* To delete existed plan, tap and hold on the plan which you want to delete"
+                + "\n* If you're a turtle, tap the the other button below.");
         showInstruction.setTitle("Basic instruction!! Please Read!!");
 
         showInstruction.setPositiveButton("Got It", new DialogInterface.OnClickListener() {
